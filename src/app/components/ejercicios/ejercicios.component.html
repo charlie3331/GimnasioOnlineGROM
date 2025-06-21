@@ -1,6 +1,7 @@
 <mat-card style="margin: 20px; background-color: #222; padding: 20px; border-left: 8px solid #ff7f00;">
   <h2 style="text-align: center; color: #ff7f00;">Ejercicios por Parte del Cuerpo</h2>
   <p style="text-align: center; font-size: 16px; margin-bottom: 30px; color: #ffffff;">
+    <br>
     Estos son algunos ejercicios recomendados para comenzar a entrenar de forma efectiva, 
     organizados por grupo muscular.
   </p>
@@ -9,7 +10,7 @@
 
   <!-- Mensaje cuando no hay resultados -->
   <div *ngIf="datosFiltrados.length === 0 && filtroActual !== ''" 
-       style="text-align: center; color: #ff7f00; font-size: 18px; margin: 30px 0;">
+       style="text-align: center; color: #ffffff; font-size: 18px; margin: 30px 0;">
     No se encontraron ejercicios que coincidan con "{{ filtroActual }}"
   </div>
 

@@ -79,4 +79,48 @@ export class ResponsablesComponent {
   onMouseLeaveLuis() {
     this.currentStyleLuis = this.defaultStyleLuis;
   }
+
+  defaultStyleMarco = this.defaultStyleLuis;
+defaultStyleCarlos = this.defaultStyleLuis;
+defaultStyleRicardo = this.defaultStyleLuis;
+defaultStyleAbrahamR = this.defaultStyleLuis;
+
+hoverStyleMarco = this.hoverStyleLuis;
+hoverStyleCarlos = this.hoverStyleLuis;
+hoverStyleRicardo = this.hoverStyleLuis;
+hoverStyleAbrahamR = this.hoverStyleLuis;
+
+currentStyleMarco = this.defaultStyleMarco;
+currentStyleCarlos = this.defaultStyleCarlos;
+currentStyleRicardo = this.defaultStyleRicardo;
+currentStyleAbrahamR = this.defaultStyleAbrahamR;
+
+onMouseEnterMarco() {
+  this.currentStyleMarco = this.hoverStyleMarco;
+}
+onMouseLeaveMarco() {
+  this.currentStyleMarco = this.defaultStyleMarco;
+}
+
+onMouseEnterCarlos() {
+  this.currentStyleCarlos = this.hoverStyleCarlos;
+}
+onMouseLeaveCarlos() {
+  this.currentStyleCarlos = this.defaultStyleCarlos;
+}
+
+onMouseEnterRicardo() {
+  this.currentStyleRicardo = this.hoverStyleRicardo;
+}
+onMouseLeaveRicardo() {
+  this.currentStyleRicardo = this.defaultStyleRicardo;
+}
+
+onMouseEnterAbrahamR() {
+  this.currentStyleAbrahamR = this.hoverStyleAbrahamR;
+}
+onMouseLeaveAbrahamR() {
+  this.currentStyleAbrahamR = this.defaultStyleAbrahamR;
+}
+
 }
