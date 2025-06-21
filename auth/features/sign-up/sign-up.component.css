@@ -1,0 +1,119 @@
+.registro-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #1e1e1e; /* fondo oscuro */
+  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4); /* sombra naranja */
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  color: #ffb74d; /* texto naranja claro */
+}
+
+h1 {
+  text-align: center;
+  color: #ffa726; /* naranja */
+  margin-bottom: 20px;
+}
+
+.google-btn {
+  background-color: #2c2c2c; /* gris oscuro */
+  color: #ffb74d; /* naranja claro */
+  border: 1px solid #ff6f00; /* borde naranja */
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.google-btn i.bx {
+  font-size: 20px;
+  color: #ff6f00; /* icono naranja */
+}
+
+.google-btn:hover {
+  background-color: #ff6f00; /* naranja */
+  color: #1e1e1e; /* fondo oscuro para contraste */
+}
+
+.google-btn:hover i {
+  color: #1e1e1e; /* icono oscuro */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ffb74d; /* naranja claro */
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ff6f00; /* borde naranja */
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #2c2c2c; /* fondo input oscuro */
+  color: #fff; /* texto blanco */
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #ffa726; /* naranja claro */
+  outline: none;
+}
+
+.error {
+  color: #ff5722; /* rojo-anaranjado para errores */
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f00; /* naranja */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #ffa726; /* naranja claro */
+}
+
+.submit-btn:disabled {
+  background-color: #8d6e63; /* marrón suave para deshabilitado */
+  cursor: not-allowed;
+}
+
+.links {
+  margin-top: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #ffb74d; /* naranja claro */
+}
+
+.links a {
+  color: #ff6f00; /* naranja */
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+  color: #ffa726; /* naranja claro al hover */
+}
