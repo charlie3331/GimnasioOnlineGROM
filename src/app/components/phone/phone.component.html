@@ -1,0 +1,14 @@
+ 
+ <div class="container">
+  <div class="form-box">
+    <h1>Inicio por Telefono</h1>
+    <input [(ngModel)]="phoneNumber" placeholder="Número de teléfono" />
+    <div id="recaptcha-container"></div>
+    <button (click)="enviarCodigo()" [disabled]="!captchaResuelto || !esNumeroValido()">Enviar código</button>
+
+    <br><br>
+
+    <input [(ngModel)]="otp" placeholder="Código OTP" />
+    <button (click)="verificarCodigo()" [disabled]="!btnVerificar">Verificar código</button>
+  </div>
+</div>

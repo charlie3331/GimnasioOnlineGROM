@@ -6,6 +6,8 @@ import Swal from 'sweetalert2';
 import { NgForm } from '@angular/forms';
 import { Input } from '@angular/core';
 import { Admin } from '../../admin';
+import { ContraValidator } from '../../../validators/contra.validator';
+import { matchContra } from '../../../validators/match-contra.validator';
 
 
 @Component({
@@ -72,11 +74,12 @@ this.resumen.sesiones = 10;
 
   constructor(private fb: FormBuilder, private router: Router) {
   this.cuentaForm = this.fb.group({
-    nombre: ['', Validators.required],
-    usuario: ['', Validators.required],
-    correo: ['', [Validators.required, Validators.email]],
-    contrasena: ['', Validators.required]
-  });
+  nombre: ['', Validators.required],
+  usuario: ['', Validators.required],
+  correo: ['', [Validators.required, Validators.email]],
+  contrasena: ['', [Validators.required, ContraValidator]],
+  confirmarContrasena: ['', Validators.required],
+}, { validators: matchContra });
 
   const ultimaSesion = localStorage.getItem('ultimaSesion');
   if (ultimaSesion) {

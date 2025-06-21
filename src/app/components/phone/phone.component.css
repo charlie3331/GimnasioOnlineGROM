@@ -1,0 +1,82 @@
+/* Contenedor centrado vertical y horizontal */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212; /* fondo negro oscuro */
+
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+/* Caja del formulario */
+.form-box {
+  background-color: #1e1e1e; /* fondo un poco más claro */
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #ff6f00aa; /* sombra naranja suave */
+  max-width: 360px;
+  width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  box-sizing: border-box;
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Inputs */
+.form-box input {
+  width: 100%;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1.5px solid #ff6f00;
+  background-color: #2c2c2c;
+  color: white;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-box input::placeholder {
+  color: #ffb74d;
+}
+
+.form-box input:focus {
+  border-color: #ffa726;
+  outline: none;
+}
+
+/* Recaptcha container spacing */
+#recaptcha-container {
+  margin: 10px 0;
+}
+
+/* Botones */
+.form-box button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  background-color: #ff6f00;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 10px;
+  min-width: 140px;
+}
+
+.form-box button:disabled {
+  background-color: #663d00;
+  cursor: not-allowed;
+}
+h1{
+    color: #ff6f00;
+    font: bold;
+    text-align: center;
+}
+
+.form-box button:hover:not(:disabled) {
+  background-color: #ffa726;
+}

@@ -9,6 +9,15 @@ import { RedesComponent } from './components/redes/redes.component';
 import { NosotrosComponent } from './components/nosotros/nosotros.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { EjerciciosComponent } from './components/ejercicios/ejercicios.component';
+import authRoutes from './auth/features/auth.routes';
+import { Component } from '@angular/core';
+import { ChangeComponent } from './auth/features/change/change.component';
+import { Formulario2Component } from './components/formulario2/formulario2.component';
+import { Editar1Component } from './components/editar1/editar1.component';
+import { Editar2Component } from './components/editar2/editar2.component';
+import { Formulario3Component } from './components/formulario3/formulario3.component';
+import { PhoneComponent } from './components/phone/phone.component';
+import { MicuentaComponent } from './components/micuenta/micuenta.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },  
@@ -22,4 +31,15 @@ export const routes: Routes = [
     { path: 'footer', component: FooterComponent},
     { path: 'ejercicios', component: EjerciciosComponent},
     { path: 'videos', component: VideoCardsComponent},
+    {path:'change', component: ChangeComponent},
+    {path: 'f2', component: Formulario2Component},
+    {path:'f3',component:Formulario3Component},
+    {path: 'editar1',component: Editar1Component},
+    {path:'editar2',component:Editar2Component},
+    {path: 'phone', component: PhoneComponent},
+    {path: 'micuenta', component: MicuentaComponent},
+     {
+    path: 'auth',
+    children: authRoutes // ← Integra las rutas hijas desde auth.routes.ts
+  }
 ];

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
@@ -12,16 +12,46 @@ import { MatCardModule } from '@angular/material/card';
 import { VideoCardsComponent } from './components/video-cards/video-cards.component';
 import { EjerciciosComponent } from './components/ejercicios/ejercicios.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CapitalizarPipe } from './pipes/capitalizar.pipe';
+import { ContraValidator } from '../validators/contra.validator';
+import { matchContra } from '../validators/match-contra.validator';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, CarruselComponent, 
-    FooterComponent, RouterModule, UbicacionComponent, NosotrosComponent, 
-    ServiciosComponent, RedesComponent,ResponsablesComponent, MatCardModule, 
-    VideoCardsComponent, EjerciciosComponent, DashboardComponent],
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    NavbarComponent,
+    CarruselComponent,
+    FooterComponent,
+    UbicacionComponent,
+    NosotrosComponent,
+    ServiciosComponent,
+    RedesComponent,
+    ResponsablesComponent,
+    MatCardModule,
+    VideoCardsComponent,
+    EjerciciosComponent,
+    DashboardComponent,
+    CapitalizarPipe,
+    ContraValidator,
+    matchContra
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'practicaLibreria';
+
+  ngAfterViewInit(): void {
+    document.body.classList.remove('modo-accesible');
+
+    const toggleBtn = document.getElementById('accesibilidad-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('modo-accesible');
+      });
+    }
+  }
 }

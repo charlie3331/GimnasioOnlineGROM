@@ -14,18 +14,23 @@
     <!-- Navegación -->
     <nav class="navbar d-flex align-items-center w-100 justify-content-between">
       <ul class="nav" id="mainMenu">
-        <li><a class="nav-link" href="#mainMenu">Inicio</a></li>
-        <li><a class="nav-link" href="#about">¿Quiénes somos?</a></li>
-        <li><a class="nav-link" href="#services">Nuestros servicios</a></li>
-        <li><a class="nav-link" href="#branches">Sucursales</a></li>
-        <li><a class="nav-link" href="#social">Redes Sociales</a></li>
-        <li><a class="nav-link" href="#creditos">Responsables</a></li>
-<li>
-  <a routerLink="/form" routerLinkActive="active" class="nav-link text-white">
-    Mi cuenta
-    <span *ngIf="usuarioActual">({{ usuarioActual }})</span>
+        <li><a class="nav-link" href="#mainMenu">{{ 'inicio' | capitalizar }}</a></li>
+        <li><a class="nav-link" href="#about">{{ '¿quiénes somos?' | capitalizar }}</a></li>
+        <li><a class="nav-link" href="#services">{{ 'nuestros servicios' | capitalizar }}</a></li>
+        <li><a class="nav-link" href="#branches">{{ 'sucursales' | capitalizar }}</a></li>
+        <li><a class="nav-link" href="#social">{{ 'redes sociales' | capitalizar}}</a></li>
+        <li><a class="nav-link" href="#creditos">{{ 'responsables' | capitalizar }} </a></li>
+       
+        @if(userName){
+         <a class="nav-link" [routerLink]="['/micuenta']">
+         <i class='bx bx-user'></i> {{ userName }}
+         </a>
+         
+}@else{
+      <a class="nav-link" [routerLink]="['/auth/sign-up']">
+    <i class='bx bx-log-in'></i> Ingresar
   </a>
-</li>
+}
 
       </ul>
     </nav>
@@ -42,25 +47,38 @@
   <div class="close-btn" (click)="toggleMenu()">&#10005;</div>
   <ul>
     <br>
+     @if(userName){
+      <br>
+       <a class="nav-link" [routerLink]="['/micuenta']">
+    <i class='bx bx-user'></i> {{ userName }}
+  </a>
+      <br>
+    }
     <li><a class="nav-link" href="#mainMenu">Inicio</a></li>
     <li><a class="nav-link" href="#about">¿Quiénes somos?</a></li>
     <li><a class="nav-link" href="#services">Nuestros servicios</a></li>
     <li><a class="nav-link" href="#branches">Sucursales</a></li>
     <li><a class="nav-link" href="#social">Redes Sociales</a></li>
     <li><a class="nav-link" href="#creditos">Responsables</a></li>
+     @if(userName){
+    @if(userRole==='user'){
+        <li><a class="nav-link" [routerLink]="['/f2']">Agenda entrenamiento</a></li>
+        <li><a class="nav-link" [routerLink]="['/f3']">Registra asistencia</a></li>
+    }@else{
+       <li><a class="nav-link" [routerLink]="['/f2']">Agenda entrenamiento</a></li>
+        <li><a class="nav-link" [routerLink]="['/f3']">Registra asistencia</a></li>
+       <li><a class="nav-link" [routerLink]="['/editar1']">Informacion de Agendas</a></li>
+       <li><a class="nav-link" [routerLink]="['/editar2']">Informacion de Asistencias</a></li>
+    }
+   <a href="#" class="nav-link" (click)="logOut(); $event.preventDefault()">
+    <i class='bx bx-log-out'></i> Cerrar sesión
+  </a>
+}@else{
+     <a class="nav-link" [routerLink]="['/auth/sign-up']">
+    <i class='bx bx-log-in'></i> Ingresar
+  </a>
+}
   </ul>
 </div>
-
-<!-- Cuadro de usuario (solo visible si usuario está logueado) -->
-@if(usuarioActual && mostrarMenuUsuario) {
-<div class="user-menu">
-  <div class="user-menu-content">
-    <h5>{{ usuarioActual }}</h5>
-    <button (click)="cerrarSesion()">Cerrar sesión</button>
-  </div>
-</div>
-}
-
-
 <!-- Barra de separación -->
 <div style="height: 4px; background-color: #ff7f00; width: 100%;"></div>

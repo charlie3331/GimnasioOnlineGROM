@@ -1,5 +1,26 @@
-<section id="about" class="container py-5">
-    <h3 class="text-center title">{{ titulo }}</h3>
-    <p class="description">{{ parrafo }}</p>
+<div style="position: relative;">
+  <button id="btn-lector-nosotros" style="position: absolute; top: 10px; left: 10px; background: none; border: none; cursor: pointer; z-index: 10;">
+    <img src="/img/voz/play.png" alt="Reproducir" style="width: 40px;">
+  </button>
+
+  <button id="btn-pausa-nosotros" style="display: none; position: absolute; top: 10px; left: 60px; background: none; border: none; cursor: pointer; z-index: 10;">
+    <img src="/img/voz/pausando.jpg" alt="Pausa" style="width: 40px;">
+  </button>
+
+  <button id="btn-detener-nosotros" style="display: none; position: absolute; top: 10px; left: 110px; background: none; border: none; cursor: pointer; z-index: 10;">
+    <img src="/img/voz/detener.jpg" alt="Detener" style="width: 40px;">
+  </button>
+
+
+  <div style="position: absolute; top: 60px; left: 10px; z-index: 10; display: flex; gap: 6px;">
+    <button id="aumentar-texto-nosotros" style="padding: 5px 10px; font-size: 14px; border-radius: 6px;">A+</button>
+    <button id="reducir-texto-nosotros" style="padding: 5px 10px; font-size: 14px; border-radius: 6px;">A-</button>
+  </div>
+
+  <section id="about" class="container py-5">
+    <div id="contenido-lector-nosotros">
+      <h3 class="text-center title">{{ titulo }}</h3>
+      <p class="description" id="parrafo-nosotros">{{ parrafo }}</p>
+    </div>
   </section>
-  
+</div>
