@@ -18,6 +18,7 @@ import { Editar2Component } from './components/editar2/editar2.component';
 import { Formulario3Component } from './components/formulario3/formulario3.component';
 import { PhoneComponent } from './components/phone/phone.component';
 import { MicuentaComponent } from './components/micuenta/micuenta.component';
+import { ProductosComponent } from './components/productos/productos.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },  
@@ -38,8 +39,13 @@ export const routes: Routes = [
     {path:'editar2',component:Editar2Component},
     {path: 'phone', component: PhoneComponent},
     {path: 'micuenta', component: MicuentaComponent},
+      {path: 'productos', component: ProductosComponent},
+
      {
     path: 'auth',
     children: authRoutes // ← Integra las rutas hijas desde auth.routes.ts
   }
+
+
+  
 ];

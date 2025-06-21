@@ -9,7 +9,6 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 
-
 const firebaseConfig = {
   projectId: "gina1-838c7",
   appId: "1:860331012943:web:a6c8105c96dc5a9e4f0b3a",
