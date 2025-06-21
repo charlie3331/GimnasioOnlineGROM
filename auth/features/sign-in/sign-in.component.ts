@@ -9,6 +9,9 @@ import {
 import { AuthService } from '../../data-access/auth.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { ContraValidator } from '../../../src/validators/contra.validator';
+import { CommonModule } from '@angular/common';
 
 import {
   getAuth,
@@ -23,7 +26,7 @@ interface SignInFormValue {
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule, NgIf,CommonModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })
@@ -33,10 +36,12 @@ export default class SignInComponent implements OnInit {
   private _authService = inject(AuthService);
   private auth = getAuth();
 
-  form: FormGroup = this._formBuilder.group({
-    email: this._formBuilder.control<string>('', [Validators.required, Validators.email]),
-    password: this._formBuilder.control<string>('', Validators.required)
-  });
+form: FormGroup = this._formBuilder.group({
+  email: this._formBuilder.control<string>('', [Validators.required, Validators.email]),
+  nombre: this._formBuilder.control<string>('', [Validators.required]),
+  password: this._formBuilder.control<string>('', [Validators.required, ContraValidator])
+});
+
 
   captchaResuelto: boolean = false;
   recaptchaVerifier!: RecaptchaVerifier;

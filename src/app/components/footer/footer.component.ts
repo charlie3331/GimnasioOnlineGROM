@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CapitalizarPipe } from '../../pipes/capitalizar.pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CapitalizarPipe],  
+  imports: [CapitalizarPipe,CommonModule],  
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

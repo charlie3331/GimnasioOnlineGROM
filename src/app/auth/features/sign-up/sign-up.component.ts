@@ -7,8 +7,9 @@ import {
   getAuth,
   RecaptchaVerifier
 } from 'firebase/auth';
-
-
+import { NgIf } from '@angular/common';
+import { ContraValidator } from '../../../../validators/contra.validator';
+import { matchContra } from '../../../../validators/match-contra.validator';
 // Interfaz para los datos del formulario (solo los valores, no los FormControls)
 interface SignUpFormValue {
   email: string;
@@ -20,7 +21,7 @@ interface SignUpFormValue {
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule,RouterModule],
+  imports: [ReactiveFormsModule,RouterModule, NgIf],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
@@ -36,11 +37,12 @@ export default class SignUpComponent {
   recaptchaVerifier!: RecaptchaVerifier;
 
   // Tipamos el FormGroup con los tipos correctos
-  form: FormGroup = this._formBuilder.group({
-    email: this._formBuilder.control<string>('', [Validators.required, Validators.email]),
-    nombre: this._formBuilder.control<string>('', [Validators.required]),
-    password: this._formBuilder.control<string>('', Validators.required)
-  });
+form: FormGroup = this._formBuilder.group({
+  email: this._formBuilder.control<string>('', [Validators.required, Validators.email]),
+  nombre: this._formBuilder.control<string>('', [Validators.required]),
+  password: this._formBuilder.control<string>('', [Validators.required, ContraValidator])  // 👈 agregado aquí
+});
+
 
   ngOnInit():void{
     this.initRecaptcha();

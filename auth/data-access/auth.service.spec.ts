@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { CommonModule } from '@angular/common';
 
 import { AuthService } from './auth.service';
 

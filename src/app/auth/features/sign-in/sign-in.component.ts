@@ -9,6 +9,7 @@ import {
 import { AuthService } from '../../data-access/auth.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 import {
   getAuth,
@@ -23,7 +24,7 @@ interface SignInFormValue {
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterModule],
+  imports: [ReactiveFormsModule, RouterModule,CommonModule],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css'
 })

@@ -35,8 +35,7 @@ import { matchContra } from '../validators/match-contra.validator';
     EjerciciosComponent,
     DashboardComponent,
     CapitalizarPipe,
-    ContraValidator,
-    matchContra
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
