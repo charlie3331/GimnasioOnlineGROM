@@ -14,15 +14,16 @@
     No se encontraron ejercicios que coincidan con "{{ filtroActual }}"
   </div>
 
-  <div *ngFor="let grupo of datosFiltrados; let i = index" style="margin-bottom: 30px;">
-    <h3 (click)="seleccionarParte(grupo.parte)" 
-        style="cursor: pointer; text-transform: uppercase; color: #ff7f00; border-bottom: 2px solid #ff7f00; padding-bottom: 5px;">
-      <span [innerHTML]="resaltarParte(grupo.parte, filtroActual)"></span>
-      <span style="font-size: 14px; font-weight: normal; color: #ccc;">
-        ({{ grupo.ejercicios.length }} ejercicio{{ grupo.ejercicios.length !== 1 ? 's' : '' }})
-      </span>
-    </h3>
+<div *ngFor="let grupo of datosFiltrados; let i = index" style="margin-bottom: 30px;">
+  <h3 (click)="seleccionarParte(grupo.parte)" 
+      style="cursor: pointer; text-transform: uppercase; color: #ff7f00; border-bottom: 2px solid #ff7f00; padding-bottom: 5px;">
+    <span [innerHTML]="resaltarParte(grupo.parte, filtroActual)"></span>
+    <span style="font-size: 14px; font-weight: normal; color: #ccc;">
+      ({{ grupo.ejercicios.length }} ejercicio{{ grupo.ejercicios.length !== 1 ? 's' : '' }})
+    </span>
+  </h3>
     
+   <div class="tabla-responsive">
     <table mat-table [dataSource]="grupo.ejercicios" class="mat-elevation-z8" 
            style="width: 100%; background-color: white; border-radius: 6px; overflow: hidden;">
       
@@ -67,4 +68,6 @@
       <tr mat-row *matRowDef="let row; columns: columnas;" style="background-color: #fafafa;"></tr>
     </table>
   </div>
+    </div>
+
 </mat-card>
