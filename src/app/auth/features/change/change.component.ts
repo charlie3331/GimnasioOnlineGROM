@@ -6,6 +6,7 @@ import {
   Validators,
   FormGroup
 } from '@angular/forms';
+import { ApiService } from '../../../services/api.service';
 import { AuthService } from '../../data-access/auth.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
