@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { UbicacionComponent } from './components/ubicacion/ubicacion.component';  
+import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { FormComponent } from './components/usuario/usuario.component';
 import { CarruselComponent } from './components/carrusel/carrusel.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
@@ -19,33 +19,32 @@ import { Formulario3Component } from './components/formulario3/formulario3.compo
 import { PhoneComponent } from './components/phone/phone.component';
 import { MicuentaComponent } from './components/micuenta/micuenta.component';
 import { ProductosComponent } from './components/productos/productos.component';
+import { AuthComponent } from './auth/features/auth/auth.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },  
-    { path: 'ubicacion', component: UbicacionComponent},
-    { path: 'carrusel', component: CarruselComponent},  
-    { path: 'servicio', component: ServiciosComponent},
-    { path: 'responsables', component: ResponsablesComponent},
-    { path: 'form', component: FormComponent },  
-    { path: 'redes/:id', component: RedesComponent},  
-    { path: 'nosotros', component: NosotrosComponent},
-    { path: 'footer', component: FooterComponent},
-    { path: 'ejercicios', component: EjerciciosComponent},
-    { path: 'videos', component: VideoCardsComponent},
-    {path:'change', component: ChangeComponent},
-    {path: 'f2', component: Formulario2Component},
-    {path:'f3',component:Formulario3Component},
-    {path: 'editar1',component: Editar1Component},
-    {path:'editar2',component:Editar2Component},
-    {path: 'phone', component: PhoneComponent},
-    {path: 'micuenta', component: MicuentaComponent},
-      {path: 'productos', component: ProductosComponent},
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'ubicacion', component: UbicacionComponent },
+  { path: 'carrusel', component: CarruselComponent },
+  { path: 'servicio', component: ServiciosComponent },
+  { path: 'responsables', component: ResponsablesComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'redes/:id', component: RedesComponent },
+  { path: 'nosotros', component: NosotrosComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'ejercicios', component: EjerciciosComponent },
+  { path: 'videos', component: VideoCardsComponent },
+  { path: 'change', component: ChangeComponent },
+  { path: 'f2', component: Formulario2Component },
+  { path: 'f3', component: Formulario3Component },
+  { path: 'editar1', component: Editar1Component },
+  { path: 'editar2', component: Editar2Component },
+  { path: 'phone', component: PhoneComponent },
+  { path: 'micuenta', component: MicuentaComponent },
+  { path: 'productos', component: ProductosComponent },
+  { path: 'sesion', component: AuthComponent },
 
-     {
+  {
     path: 'auth',
     children: authRoutes // ← Integra las rutas hijas desde auth.routes.ts
   }
-
-
-  
 ];

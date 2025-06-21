@@ -73,6 +73,7 @@ export default class SignUpComponent {
 }
 
 
+
 async submit() {
   if (this.form.invalid) return;
 

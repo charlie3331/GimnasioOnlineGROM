@@ -1,70 +1,88 @@
-form#todo {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 25px;
-  background-color: #1e1e1e; /* fondo oscuro */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-top: 60px;
+  height: 100vh;
+}
+
+.registro-container {
+  background-color: white;
+  padding: 40px 30px;
+  width: 400px;
   border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4); /* sombra naranja */
-  font-family: "Segoe UI", sans-serif;
-  color: #ffb74d; /* texto naranja claro */
-  box-sizing: border-box;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-form#todo h1 {
+.registro-container h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: #ffa726; /* naranja */
+  margin-bottom: 10px;
+  color: #333;
 }
 
-form#todo .form-group {
-  margin-bottom: 25px;
+.container-input {
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 5px;
 }
 
-form#todo label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #ffb74d; /* naranja claro */
+.container-input i {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #666;
 }
 
-form#todo input,
-form#todo select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ff6f00; /* borde naranja */
-  border-radius: 8px;
-  font-size: 16px;
-  transition: border-color 0.3s ease;
-  background-color: #2c2c2c; /* input oscuro */
-  color: white;
-  box-sizing: border-box;
-}
-
-form#todo input:focus,
-form#todo select:focus {
-  border-color: #ffa726; /* naranja claro */
-  outline: none;
-}
-
-form#todo button {
-  background-color: #ff6f00; /* naranja */
-  color: white;
-  padding: 12px 20px;
+.container-input input,
+.container-input select {
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
+  background: transparent;
+  outline: none;
   width: 100%;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  padding: 5px 0;
+  color: #333;
 }
 
-form#todo button:hover {
-  background-color: #ffa726; /* naranja claro */
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-form#todo .error {
-  color: #ff5722; /* rojo-anaranjado para errores */
-  font-size: 13px;
-  margin-top: 6px;
-  display: block;
+.button:hover {
+  background-color: #e65c00;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  padding-left: 4px;
+}
+
+.invalid {
+  border-bottom: 2px solid red;
 }

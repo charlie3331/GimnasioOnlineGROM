@@ -1,37 +1,48 @@
-<form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" id="todo">
-  <h1>Agenda tu entrenamiento</h1>
+<body>
+  <div class="registro-container">
+    <h2>Agenda tu entrenamiento</h2>
 
-  <div class="form-group">
-    <label for="entrenamiento">Entrenamiento</label>
-    <select id="entrenamiento" formControlName="entrenamiento">
-      <option value="">Selecciona entrenamiento</option>
-      <option *ngFor="let e of entrenamientos" [value]="e">{{ e }}</option>
-    </select>
-    <div *ngIf="formulario.get('entrenamiento')?.touched && formulario.get('entrenamiento')?.invalid">
-      <small class="error">Campo obligatorio</small>
-    </div>
+    <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()" id="todo">
+      <!-- Entrenamiento -->
+      <div class="container-input">
+        <i class='bx bx-dumbbell'></i>
+        <select formControlName="entrenamiento"
+          [class.invalid]="formulario.get('entrenamiento')?.touched && formulario.get('entrenamiento')?.invalid">
+          <option value="">Selecciona entrenamiento</option>
+          <option *ngFor="let e of entrenamientos" [value]="e">{{ e }}</option>
+        </select>
+      </div>
+      <div class="error" *ngIf="formulario.get('entrenamiento')?.touched && formulario.get('entrenamiento')?.invalid">
+        <small>Campo obligatorio</small>
+      </div>
+
+      <!-- Fecha -->
+      <div class="container-input">
+        <i class='bx bx-calendar'></i>
+        <input type="date" formControlName="fecha" [min]="minFecha"
+          [class.invalid]="formulario.get('fecha')?.touched && formulario.get('fecha')?.invalid" />
+      </div>
+      <div class="error" *ngIf="formulario.get('fecha')?.touched && formulario.get('fecha')?.invalid">
+        <small>Campo obligatorio</small>
+      </div>
+
+      <!-- Turno -->
+      <div class="container-input">
+        <i class='bx bx-time'></i>
+        <select formControlName="turno"
+          [class.invalid]="formulario.get('turno')?.touched && formulario.get('turno')?.invalid">
+          <option value="">Selecciona turno</option>
+          <option value="Mañana">Mañana</option>
+          <option value="Tarde">Tarde</option>
+          <option value="Noche">Noche</option>
+        </select>
+      </div>
+      <div class="error" *ngIf="formulario.get('turno')?.touched && formulario.get('turno')?.invalid">
+        <small>Campo obligatorio</small>
+      </div>
+      <br>
+      <!-- Botón -->
+      <button type="submit" class="button" [disabled]="formulario.invalid">Enviar</button>
+    </form>
   </div>
-
-  <div class="form-group">
-    <label for="fecha">Fecha</label>
-    <input id="fecha" type="date" formControlName="fecha" [min]="minFecha" />
-    <div *ngIf="formulario.get('fecha')?.touched && formulario.get('fecha')?.invalid">
-      <small class="error">Campo obligatorio</small>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="turno">Turno</label>
-    <select id="turno" formControlName="turno">
-      <option value="">Selecciona turno</option>
-      <option value="Mañana">Mañana</option>
-      <option value="Tarde">Tarde</option>
-      <option value="Noche">Noche</option>
-    </select>
-    <div *ngIf="formulario.get('turno')?.touched && formulario.get('turno')?.invalid">
-      <small class="error">Campo obligatorio</small>
-    </div>
-  </div>
-
-  <button type="submit">Enviar</button>
-</form>
+</body>

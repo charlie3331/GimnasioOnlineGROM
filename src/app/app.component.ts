@@ -31,10 +31,9 @@ import { matchContra } from '../validators/match-contra.validator';
     RedesComponent,
     ResponsablesComponent,
     MatCardModule,
-    VideoCardsComponent,
-    EjerciciosComponent,
+
     DashboardComponent,
-    CapitalizarPipe,
+
     
   ],
   templateUrl: './app.component.html',

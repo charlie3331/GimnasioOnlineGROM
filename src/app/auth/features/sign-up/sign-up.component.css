@@ -1,119 +1,178 @@
-.registro-container {
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 30px;
-  background-color: #1e1e1e; /* fondo oscuro */
-  box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4); /* sombra naranja */
-  border-radius: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #ffb74d; /* texto naranja claro */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
+body {
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: start; /* En lugar de center, para moverlo más abajo */
+  padding-top: 60px; /* Baja el contenedor */
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.registro-container {
+  background-color: white;
+  padding: 40px 30px;
+  width: 400px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.registro-container h2 {
   text-align: center;
-  color: #ffa726; /* naranja */
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.social-networks {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .google-btn {
-  background-color: #2c2c2c; /* gris oscuro */
-  color: #ffb74d; /* naranja claro */
-  border: 1px solid #ff6f00; /* borde naranja */
-  font-size: 16px;
-  font-weight: 500;
-  padding: 10px 20px;
-  border-radius: 4px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.google-btn i.bx {
-  font-size: 20px;
-  color: #ff6f00; /* icono naranja */
-}
-
-.google-btn:hover {
-  background-color: #ff6f00; /* naranja */
-  color: #1e1e1e; /* fondo oscuro para contraste */
-}
-
-.google-btn:hover i {
-  color: #1e1e1e; /* icono oscuro */
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-label {
-  display: block;
-  margin-bottom: 6px;
-  color: #ffb74d; /* naranja claro */
-}
-
-input[type="email"],
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 8px 10px;
-  border: 1px solid #ff6f00; /* borde naranja */
-  border-radius: 6px;
   font-size: 14px;
-  background-color: #2c2c2c; /* fondo input oscuro */
-  color: #fff; /* texto blanco */
-  transition: border-color 0.3s ease;
 }
 
-input:focus {
-  border-color: #ffa726; /* naranja claro */
+.google-btn i {
+  color: #4285f4;
+  font-size: 18px;
+}
+
+.icon {
+  font-size: 20px;
+  color: #444;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  color: #ff6f00;
+}
+
+.container-input {
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+}
+
+.container-input i {
+  font-size: 18px;
+  margin-right: 8px;
+  color: #666;
+}
+
+.container-input input {
+  border: none;
+  background: transparent;
   outline: none;
+  width: 100%;
+  font-size: 14px;
+}
+
+.button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #e65c00;
 }
 
 .error {
-  color: #ff5722; /* rojo-anaranjado para errores */
-  font-size: 13px;
-  margin-top: 5px;
+  color: red;
+  font-size: 12px;
+  margin-top: -5px;
+  margin-bottom: 5px;
+  padding-left: 4px;
 }
 
-.submit-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #ff6f00; /* naranja */
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-  background-color: #ffa726; /* naranja claro */
-}
-
-.submit-btn:disabled {
-  background-color: #8d6e63; /* marrón suave para deshabilitado */
-  cursor: not-allowed;
+.invalid {
+  border-bottom: 2px solid red;
 }
 
 .links {
-  margin-top: 15px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
-  color: #ffb74d; /* naranja claro */
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .links a {
-  color: #ff6f00; /* naranja */
+  color: #444;
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .links a:hover {
-  text-decoration: underline;
-  color: #ffa726; /* naranja claro al hover */
+  color: #ff6f00;
+}
+
+
+.social-networks {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  justify-content: center;
+}
+
+.social-networks .icon,
+.social-networks .google-btn {
+  border: 1px solid #C9CCCB;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #333;
+}
+
+.social-networks .icon:hover,
+.social-networks .google-btn:hover {
+  background-color: #FF6F00;
+  color: white;
+  border-color: #FF6F00;
+}
+
+
+.google-btn i {
+  font-size: 22px;
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease;
+}
+
+.google-btn:hover i {
+  color: white;
 }

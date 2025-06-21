@@ -11,7 +11,7 @@ declare var paypal: any;
 @Component({
   selector: 'app-productos',
   standalone: true,
-  imports: [CommonModule, FiltroCategoriaPipe],
+  imports: [CommonModule],
   templateUrl: './productos.component.html',
   styleUrls: ['./productos.component.css']
 })
