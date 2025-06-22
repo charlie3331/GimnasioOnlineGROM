@@ -7,9 +7,9 @@ import { Component, AfterViewInit } from '@angular/core';
 })
 export class ServiciosComponent implements AfterViewInit {
   ngAfterViewInit(): void {
-    const btnPlay = document.getElementById('btn-lector-servicios') as HTMLElement;
-    const btnPause = document.getElementById('btn-pausa-servicios') as HTMLElement;
-    const btnStop = document.getElementById('btn-detener-servicios') as HTMLElement;
+    const btnPlay = document.getElementById('btn-lector-general') as HTMLElement;
+    const btnPause = document.getElementById('btn-pausa-general') as HTMLElement;
+    const btnStop = document.getElementById('btn-detener-general') as HTMLElement;
 
     const contenedor = document.getElementById('contenido-lector-servicios');
     if (!contenedor) return;
@@ -69,30 +69,23 @@ export class ServiciosComponent implements AfterViewInit {
       document.head.appendChild(style);
     }
 
-    btnPlay.addEventListener('click', () => {
+    btnPlay?.addEventListener('click', () => {
       if (isPaused) {
         speechSynthesis.resume();
         isPaused = false;
         btnPlay.style.display = 'none';
         btnPause.style.display = 'inline-block';
-      } else {
-        setVoice();
-        speechSynthesis.cancel();
-        speechSynthesis.speak(utterance);
-        btnPlay.style.display = 'none';
-        btnPause.style.display = 'inline-block';
-        btnStop.style.display = 'inline-block';
       }
     });
 
-    btnPause.addEventListener('click', () => {
+    btnPause?.addEventListener('click', () => {
       speechSynthesis.pause();
       isPaused = true;
       btnPlay.style.display = 'inline-block';
       btnPause.style.display = 'none';
     });
 
-    btnStop.addEventListener('click', () => {
+    btnStop?.addEventListener('click', () => {
       speechSynthesis.cancel();
       spans.forEach(span => span.classList.remove('highlight'));
       btnPlay.style.display = 'inline-block';

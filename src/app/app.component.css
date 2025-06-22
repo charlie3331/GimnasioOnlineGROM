@@ -1,4 +1,23 @@
-/* Botón flotante */
+
+#accesibilidad-toggle {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+  z-index: 1000;
+  background-color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+
+#accesibilidad-toggle i {
+  font-size: 24px;
+  color: black;
+}
+
+
 .btn-toggle-accesibilidad {
   position: fixed;
   top: 80px;
@@ -12,10 +31,13 @@
   color: white;
   font-size: 24px;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Panel lateral oculto */
+
 .accesibilidad-panel {
   position: fixed;
   top: 140px;
@@ -27,20 +49,22 @@
   padding: 15px;
   z-index: 1999;
   transition: left 0.3s ease-in-out;
-  box-shadow: 2px 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 .accesibilidad-panel.show {
   left: 10px;
 }
 
-/* Estilo interno del panel */
+
 .accesibilidad-panel h4 {
   margin-top: 0;
   font-size: 18px;
   color: #333;
   text-align: center;
 }
+
 
 .accesibilidad-panel .botones-voz,
 .accesibilidad-panel .controles-texto {
@@ -50,6 +74,7 @@
   flex-wrap: wrap;
   gap: 6px;
 }
+
 
 .accesibilidad-panel button,
 .accesibilidad-panel select {
@@ -61,12 +86,19 @@
   cursor: pointer;
 }
 
+
 .accesibilidad-panel img {
   width: 100%;
   height: 100%;
   max-width: 30px;
   object-fit: contain;
 }
+
+
+.highlight {
+  background-color: yellow;
+}
+
 
 @media screen and (max-width: 480px) {
   .btn-toggle-accesibilidad {
@@ -82,7 +114,4 @@
   .accesibilidad-panel.show {
     left: 5%;
   }
-}
-.highlight {
-  background-color: yellow;
 }

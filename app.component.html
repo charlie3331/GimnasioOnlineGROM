@@ -4,14 +4,23 @@
   <i id="icono-accesibilidad" class='bx bx-sun' style="font-size: 24px; color: rgb(0, 0, 0);"></i>
 </button>
 
-<!-- Aquí va el resto de tu contenido principal -->
+<!-- Botones de accesibilidad adicionales -->
+<div style="position: fixed; top: 120px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 10px; border: 1px solid #ccc;">
+  <button (click)="cambiarTamano('20px')" class="btn btn-primary btn-sm mb-1">Aumentar texto</button>
+  <button (click)="cambiarTamano('15px')" class="btn btn-secondary btn-sm mb-1">Texto normal</button>
+  <button (click)="cambiarFuente('Arial')" class="btn btn-info btn-sm mb-1">Fuente Arial</button>
+  <button (click)="cambiarFuente('Verdana')" class="btn btn-info btn-sm mb-1">Fuente Verdana</button>
+  <button (click)="activarSubrayado()" class="btn btn-warning btn-sm mb-1">Subrayar texto</button>
+  <button (click)="quitarSubrayado()" class="btn btn-light btn-sm">Quitar subrayado</button>
+</div>
+
+<!-- Contenido principal -->
 <div class="container">
   <app-navbar></app-navbar>
   <router-outlet></router-outlet>
   <app-carrusel></app-carrusel>
   <app-nosotros></app-nosotros>
   <app-servicios></app-servicios>
-
   <app-ubicacion></app-ubicacion>
   <app-dashboard></app-dashboard>
   <app-redes></app-redes>

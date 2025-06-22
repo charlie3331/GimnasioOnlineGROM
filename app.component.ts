@@ -36,7 +36,7 @@ import { ContraValidator } from './src/validators/contra.validator';
     CapitalizarPipe,
   ],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']  // <-- aquí debe ser styleUrls (plural)
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
   title = 'practicaLibreria';
@@ -60,5 +60,33 @@ export class AppComponent implements AfterViewInit {
         }
       });
     }
+  }
+
+  cambiarFuente(fuente: string) {
+    const elementos = document.querySelectorAll('.contenido-servicios, .contenido-nosotros');
+    elementos.forEach((el: Element) => {
+      (el as HTMLElement).style.fontFamily = fuente;
+    });
+  }
+
+  cambiarTamano(tamano: string) {
+    const elementos = document.querySelectorAll('.contenido-servicios, .contenido-nosotros');
+    elementos.forEach((el: Element) => {
+      (el as HTMLElement).style.fontSize = tamano;
+    });
+  }
+
+  activarSubrayado() {
+    const elementos = document.querySelectorAll('.contenido-servicios, .contenido-nosotros');
+    elementos.forEach((el: Element) => {
+      (el as HTMLElement).style.textDecoration = 'underline';
+    });
+  }
+
+  quitarSubrayado() {
+    const elementos = document.querySelectorAll('.contenido-servicios, .contenido-nosotros');
+    elementos.forEach((el: Element) => {
+      (el as HTMLElement).style.textDecoration = 'none';
+    });
   }
 }
