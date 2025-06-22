@@ -13,24 +13,17 @@ Queremos que cada miembro se sienta motivado y satisfecho con su progreso, porqu
 En GROM FITNESS CENTER, trabajamos cada día para que tu experiencia sea inolvidable y que te sientas parte de una comunidad dedicada a mejorar la salud y el rendimiento físico.`;
 
   ngAfterViewInit(): void {
-    const btnPlay = document.getElementById('btn-lector-nosotros') as HTMLElement;
-    const btnPause = document.getElementById('btn-pausa-nosotros') as HTMLElement;
-    const btnStop = document.getElementById('btn-detener-nosotros') as HTMLElement;
-    const contenedor = document.getElementById('contenido-lector-nosotros');
+    const btnPlay = document.getElementById('btn-lector-servicios') as HTMLElement;
+    const btnPause = document.getElementById('btn-pausa-servicios') as HTMLElement;
+    const btnStop = document.getElementById('btn-detener-servicios') as HTMLElement;
+
+    const contenedor = document.getElementById('contenido-lector-servicios');
     if (!contenedor) return;
 
-    const titulo = contenedor.querySelector('h3') as HTMLElement;
-    const parrafos = contenedor.querySelectorAll('p, li') as NodeListOf<HTMLElement>;
-
+    const parrafos = contenedor.querySelectorAll('h3, h4, p, li') as NodeListOf<HTMLElement>;
     let texto = '';
-    if (titulo) texto += titulo.innerText + ' ';
     parrafos.forEach(p => texto += p.innerText + ' ');
     const palabras = texto.trim().split(/\s+/);
-
-    if (titulo) {
-      const palabrasTitulo = titulo.innerText.trim().split(/\s+/);
-      titulo.innerHTML = palabrasTitulo.map(w => `<span>${w}</span>`).join(' ');
-    }
 
     parrafos.forEach(p => {
       const palabrasParrafo = p.innerText.trim().split(/\s+/);
@@ -52,7 +45,7 @@ En GROM FITNESS CENTER, trabajamos cada día para que tu experiencia sea inolvid
 
     let isPaused = false;
 
-    utterance.onboundary = function (event) {
+    utterance.onboundary = function (event: SpeechSynthesisEvent) {
       if (event.charIndex !== undefined) {
         const charIndex = event.charIndex;
         let index = 0, count = 0;
@@ -78,7 +71,7 @@ En GROM FITNESS CENTER, trabajamos cada día para que tu experiencia sea inolvid
     if (!document.getElementById('lector-style')) {
       const style = document.createElement('style');
       style.id = 'lector-style';
-      style.innerHTML = `.highlight { background-color: yellow !important; color: black !important; }`;
+      style.innerHTML = `.highlight { background-color: yellow; }`;
       document.head.appendChild(style);
     }
 
@@ -120,32 +113,29 @@ En GROM FITNESS CENTER, trabajamos cada día para que tu experiencia sea inolvid
       setVoice();
     }
 
-    const aumentarBtn = document.getElementById('aumentar-texto-nosotros');
-    const reducirBtn = document.getElementById('reducir-texto-nosotros');
-    let tamañoActual = 18;
+    const aumentarBtn = document.getElementById('aumentar-texto-servicios');
+    const reducirBtn = document.getElementById('reducir-texto-servicios');
+    const selectorFuente = document.getElementById('font-style-selector-servicios') as HTMLSelectElement;
+
+    let tamañoActual = 16;
 
     aumentarBtn?.addEventListener('click', () => {
       tamañoActual += 2;
-      contenedor.querySelectorAll('p span, li span').forEach(span => {
-        (span as HTMLElement).style.fontSize = `${tamañoActual}px`;
+      contenedor.querySelectorAll('p, li, h4').forEach(el => {
+        (el as HTMLElement).style.fontSize = `${tamañoActual}px`;
       });
     });
 
     reducirBtn?.addEventListener('click', () => {
       tamañoActual = Math.max(12, tamañoActual - 2);
-      contenedor.querySelectorAll('p span, li span').forEach(span => {
-        (span as HTMLElement).style.fontSize = `${tamañoActual}px`;
+      contenedor.querySelectorAll('p, li, h4').forEach(el => {
+        (el as HTMLElement).style.fontSize = `${tamañoActual}px`;
       });
     });
 
-    const fontSelector = document.getElementById('font-style-selector-nosotros') as HTMLSelectElement;
-    if (fontSelector) {
-      fontSelector.addEventListener('change', () => {
-        const selectedFont = fontSelector.value;
-        contenedor.querySelectorAll('h3 span, p span, li span').forEach(span => {
-          (span as HTMLElement).style.fontFamily = selectedFont;
-        });
-      });
-    }
+    selectorFuente?.addEventListener('change', () => {
+      const fuente = selectorFuente.value;
+      contenedor.style.fontFamily = fuente;
+    });
   }
 }

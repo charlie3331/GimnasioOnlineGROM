@@ -44,6 +44,9 @@ export class AppComponent implements AfterViewInit {
   title = 'practicaLibreria';
 
   ngAfterViewInit(): void {
+
+
+    
     // Desactiva el modo accesible al iniciar
     document.body.classList.remove('modo-accesible');
 
