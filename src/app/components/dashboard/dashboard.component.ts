@@ -7,7 +7,7 @@ import { VideoCardsComponent } from '../video-cards/video-cards.component';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, MatCardModule, EjerciciosComponent, VideoCardsComponent],
+  imports: [CommonModule, MatCardModule, EjerciciosComponent, VideoCardsComponent,VideoCardsComponent],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
