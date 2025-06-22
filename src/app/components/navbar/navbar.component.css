@@ -316,3 +316,15 @@ nav {
 .dropdown-menu ul li a:hover {
   background-color: #f1f1f1;
 }
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3); /* fondo oscuro semitransparente */
+  display: none; /* inicialmente oculto */
+  z-index: 999; /* detrás del menú lateral */
+}

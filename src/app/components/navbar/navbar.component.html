@@ -37,6 +37,9 @@
   </div>
 </header>
 
+<div #overlay class="overlay" (click)="closeMenu()"></div>
+
+
 <!-- Botón de menú lateral -->
 <div #menuToggle class="menu-toggle" (click)="toggleMenu()">
   <i class="bx bx-menu"></i>
@@ -86,5 +89,6 @@
 }
   </ul>
 </div>
+
 <!-- Barra de separación -->
 <div style="height: 4px; background-color: #ff7f00; width: 100%;"></div>
