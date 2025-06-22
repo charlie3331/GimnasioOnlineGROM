@@ -44,17 +44,28 @@ export class AppComponent implements AfterViewInit {
   title = 'practicaLibreria';
 
   ngAfterViewInit(): void {
+    // Desactiva el modo accesible al iniciar
     document.body.classList.remove('modo-accesible');
 
-    const toggleBtn = document.getElementById('accesibilidad-toggle');
-    const icono = document.getElementById('icono-accesibilidad');
+    // Botón de accesibilidad (bx-sun / bx-moon)
+    const accesibilidadToggle = document.getElementById('accesibilidad-toggle');
+    const icono = document.getElementById('icono-accesibilidad') as HTMLElement;
 
-    if (toggleBtn && icono) {
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('modo-accesible');
-        const modo = document.body.classList.contains('modo-accesible');
-        icono.textContent = modo ? '🌙' : '☀️';
-      });
-    }
+    accesibilidadToggle?.addEventListener('click', () => {
+      document.body.classList.toggle('modo-accesible');
+      const modo = document.body.classList.contains('modo-accesible');
+      if (icono) {
+        icono.className = modo ? 'bx bx-moon' : 'bx bx-sun';
+      }
+    });
+
+    // Botón flotante que muestra/oculta el panel lateral
+    const toggleBtn = document.getElementById('toggle-accesibilidad');
+    const panel = document.getElementById('panel-accesibilidad');
+
+    toggleBtn?.addEventListener('click', () => {
+      panel?.classList.toggle('show');
+    });
   }
 }
+
