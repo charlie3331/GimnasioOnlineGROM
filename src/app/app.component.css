@@ -115,3 +115,9 @@
     left: 5%;
   }
 }
+
+
+.botones-voz i {
+  font-size: 30px; 
+  color: rgb(0, 0, 0);
+}
