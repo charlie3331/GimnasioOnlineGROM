@@ -1,6 +1,6 @@
 {
-  "name": "libreria1",
-  "short_name": "libreria1",
+  "name": "GROM-21",
+  "short_name": "GROM-21",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
