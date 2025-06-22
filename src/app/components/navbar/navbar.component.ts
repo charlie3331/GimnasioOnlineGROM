@@ -46,18 +46,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
 
-ngAfterViewInit() {
-  document.addEventListener('click', (event: MouseEvent) => {
-    const menu = this.sideMenu.nativeElement;
-    const toggle = this.menuToggle.nativeElement;
-
-    const isClickInside = menu.contains(event.target as Node) || toggle.contains(event.target as Node);
-
-    if (!isClickInside && menu.classList.contains('active')) {
-      this.closeMenu();
-    }
-  });
-}
+  ngAfterViewInit(): void { }
 
   toggleMenuUsuario(): void {
     this.mostrarMenuUsuario = !this.mostrarMenuUsuario;
