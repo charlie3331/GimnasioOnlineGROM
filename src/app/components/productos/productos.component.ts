@@ -83,6 +83,7 @@ scrollTo(seccionId: string) {
 }
 
 
+
   ngAfterViewInit() {
     // Scroll si hay fragmento en la URL
     this.router.events.pipe(
@@ -182,4 +183,5 @@ scrollTo(seccionId: string) {
   get ropa() {
     return this.productos.filter(p => p.categoria === 'ropa');
   }
+  
 }
