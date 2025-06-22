@@ -31,14 +31,15 @@ import { matchContra } from '../validators/match-contra.validator';
     RedesComponent,
     ResponsablesComponent,
     MatCardModule,
-
+    VideoCardsComponent,
+    EjerciciosComponent,
     DashboardComponent,
-
-    
+    CapitalizarPipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
+
 export class AppComponent implements AfterViewInit {
   title = 'practicaLibreria';
 
@@ -46,9 +47,13 @@ export class AppComponent implements AfterViewInit {
     document.body.classList.remove('modo-accesible');
 
     const toggleBtn = document.getElementById('accesibilidad-toggle');
-    if (toggleBtn) {
+    const icono = document.getElementById('icono-accesibilidad');
+
+    if (toggleBtn && icono) {
       toggleBtn.addEventListener('click', () => {
         document.body.classList.toggle('modo-accesible');
+        const modo = document.body.classList.contains('modo-accesible');
+        icono.textContent = modo ? '🌙' : '☀️';
       });
     }
   }

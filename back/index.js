@@ -10,6 +10,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
+
+
 app.post('/enviar-correo', async (req, res) => {
   const { correo, nombre, entrenamiento, fecha, turno } = req.body;
 

@@ -106,5 +106,30 @@ export class ServiciosComponent implements AfterViewInit {
     } else {
       setVoice();
     }
+
+    const aumentarBtn = document.getElementById('aumentar-texto-servicios');
+    const reducirBtn = document.getElementById('reducir-texto-servicios');
+    const selectorFuente = document.getElementById('font-style-selector-servicios') as HTMLSelectElement;
+
+    let tamañoActual = 16;
+
+    aumentarBtn?.addEventListener('click', () => {
+      tamañoActual += 2;
+      contenedor.querySelectorAll('p, li, h4').forEach(el => {
+        (el as HTMLElement).style.fontSize = `${tamañoActual}px`;
+      });
+    });
+
+    reducirBtn?.addEventListener('click', () => {
+      tamañoActual = Math.max(12, tamañoActual - 2);
+      contenedor.querySelectorAll('p, li, h4').forEach(el => {
+        (el as HTMLElement).style.fontSize = `${tamañoActual}px`;
+      });
+    });
+
+    selectorFuente?.addEventListener('change', () => {
+      const fuente = selectorFuente.value;
+      contenedor.style.fontFamily = fuente;
+    });
   }
 }
