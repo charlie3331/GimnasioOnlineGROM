@@ -1,13 +1,26 @@
-<h2 class="nav-link">Resultados</h2>
+@if (resultados.length > 0) {
+  <br>
+  <div class="titulo-container">
+    <h1 class="text-center">Resultados</h1>
+    <p class="subtitulo">📚 Explora los cursos que GROM tiene preparados para ti</p>
+  </div>
+}
 
 @for (curso of resultados; track $index) {
   <a [routerLink]="['/detalle', curso.id]" class="resultado-card">
-    <p>{{ curso.nombre }}</p>
-    <p>{{ curso.descripcion }}</p>
-    <p>Duración: {{ curso.duracion }}</p>
+    <p class="curso-nombre">{{ curso.nombre }}</p>
+    <p class="curso-descripcion">{{ curso.descripcion }}</p>
+    <p class="curso-duracion">Duración: {{ curso.duracion }}</p>
+    <p class="info-click">
+      Dame click para ver más información
+      <i class='bx bx-right-arrow-alt'></i>
+    </p>
   </a>
 }
 
 @if (resultados.length === 0) {
-  <p  id="txt">No se encontraron resultados.</p>
+  <div class="mensaje-no-resultados">
+    <i class="bx bx-info-circle icono-info"></i>
+    <p>No se encontraron resultados.</p>
+  </div>
 }

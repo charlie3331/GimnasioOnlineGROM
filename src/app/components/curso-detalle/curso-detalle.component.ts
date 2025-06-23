@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { CursoService } from '../../services/curso.service';
+import { Router, RouterModule } from '@angular/router';
 
 interface Curso {
   id: number;
@@ -14,7 +15,7 @@ interface Curso {
 @Component({
   selector: 'app-curso-detalle',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterModule],
   templateUrl: './curso-detalle.component.html',
   styleUrl: './curso-detalle.component.css'
 })
