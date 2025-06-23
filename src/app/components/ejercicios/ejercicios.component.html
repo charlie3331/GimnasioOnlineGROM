@@ -23,7 +23,7 @@
     </span>
   </h3>
     
-   <!-- Tabla tradicional -->
+   <!-- Tabla tradicional para pantallas normales -->
    <div class="tabla-responsive">
     <table mat-table [dataSource]="grupo.ejercicios" class="mat-elevation-z8" 
            style="width: 100%; background-color: white; border-radius: 6px; overflow: hidden;">
@@ -77,7 +77,7 @@
     </table>
   </div>
 
-  <!-- Layout alternativo para pantallas muy pequeños -->
+  <!-- Layout alternativo para móviles muy pequeños -->
   <div class="mobile-card-layout">
     <div *ngFor="let ejercicio of grupo.ejercicios" class="exercise-card">
       <div class="exercise-name" [innerHTML]="resaltarTexto(ejercicio.nombre, filtroActual)"></div>
