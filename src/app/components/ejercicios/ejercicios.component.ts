@@ -29,7 +29,8 @@ export class EjerciciosComponent implements OnInit {
   constructor(private http: HttpClient) {} 
 
   ngOnInit(): void {
-    this.http.get<any>('https://ejercicios.free.beeceptor.com/todos').subscribe(
+    this.http.get<any>('https://arl150.github.io/ejercicios-api/ejercicios.json')
+.subscribe(
       response => {
         this.datosPorParte = response.datosPorParte || [];
         this.datosFiltrados = [...this.datosPorParte];

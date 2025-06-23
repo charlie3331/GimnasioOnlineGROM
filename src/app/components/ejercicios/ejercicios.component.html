@@ -23,51 +23,43 @@
     </span>
   </h3>
     
-   <!-- Tabla tradicional para pantallas normales -->
    <div class="tabla-responsive">
     <table mat-table [dataSource]="grupo.ejercicios" class="mat-elevation-z8" 
            style="width: 100%; background-color: white; border-radius: 6px; overflow: hidden;">
       
       <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef class="col-ejercicio"
-            style="background-color: #ff7f00; color: white;">
+        <th mat-header-cell *matHeaderCellDef style="background-color: #ff7f00; color: white;">
           Ejercicio
         </th>
-        <td mat-cell *matCellDef="let ejercicio" class="col-ejercicio" 
-            style="color: #333;" [title]="ejercicio.nombre">
+        <td mat-cell *matCellDef="let ejercicio" style="color: #333;">
+          <!-- Resalta el término de búsqueda -->
           <span [innerHTML]="resaltarTexto(ejercicio.nombre, filtroActual)"></span>
         </td>
       </ng-container>
 
       <ng-container matColumnDef="series">
-        <th mat-header-cell *matHeaderCellDef class="col-series"
-            style="background-color: #ff7f00; color: white;">
+        <th mat-header-cell *matHeaderCellDef style="background-color: #ff7f00; color: white;">
           Series
         </th>
-        <td mat-cell *matCellDef="let ejercicio" class="col-series" 
-            style="color: #333; text-align: center;">
+        <td mat-cell *matCellDef="let ejercicio" style="color: #333;">
           {{ ejercicio.series }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="repeticiones">
-        <th mat-header-cell *matHeaderCellDef class="col-repeticiones"
-            style="background-color: #ff7f00; color: white;">
-          Reps
+        <th mat-header-cell *matHeaderCellDef style="background-color: #ff7f00; color: white;">
+          Repeticiones
         </th>
-        <td mat-cell *matCellDef="let ejercicio" class="col-repeticiones" 
-            style="color: #333; text-align: center;">
+        <td mat-cell *matCellDef="let ejercicio" style="color: #333;">
           {{ ejercicio.repeticiones }}
         </td>
       </ng-container>
 
       <ng-container matColumnDef="equipo">
-        <th mat-header-cell *matHeaderCellDef class="col-equipo hide-on-mobile"
-            style="background-color: #ff7f00; color: white;">
+        <th mat-header-cell *matHeaderCellDef style="background-color: #ff7f00; color: white;">
           Equipo
         </th>
-        <td mat-cell *matCellDef="let ejercicio" class="col-equipo hide-on-mobile" 
-            style="color: #333;" [title]="ejercicio.equipo">
+        <td mat-cell *matCellDef="let ejercicio" style="color: #333;">
           {{ ejercicio.equipo }}
         </td>
       </ng-container>
@@ -75,27 +67,6 @@
       <tr mat-header-row *matHeaderRowDef="columnas"></tr>
       <tr mat-row *matRowDef="let row; columns: columnas;" style="background-color: #fafafa;"></tr>
     </table>
-  </div>
-
-  <!-- Layout alternativo para móviles muy pequeños -->
-  <div class="mobile-card-layout">
-    <div *ngFor="let ejercicio of grupo.ejercicios" class="exercise-card">
-      <div class="exercise-name" [innerHTML]="resaltarTexto(ejercicio.nombre, filtroActual)"></div>
-      <div class="exercise-details">
-        <div class="detail-item">
-          <span class="detail-label">Series:</span>
-          <span>{{ ejercicio.series }}</span>
-        </div>
-        <div class="detail-item">
-          <span class="detail-label">Reps:</span>
-          <span>{{ ejercicio.repeticiones }}</span>
-        </div>
-        <div class="detail-item" style="grid-column: 1 / -1;">
-          <span class="detail-label">Equipo:</span>
-          <span>{{ ejercicio.equipo }}</span>
-        </div>
-      </div>
-    </div>
   </div>
     </div>
 

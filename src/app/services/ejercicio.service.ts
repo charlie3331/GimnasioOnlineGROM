@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EjercicioService {
-  private apiUrl = 'https://prueba-ejercicios.free.beeceptor.com/todos    ';
+  private apiUrl = 'https://arl150.github.io/ejercicios-api/ejercicios.json';
 
   constructor(private http: HttpClient) {}
 

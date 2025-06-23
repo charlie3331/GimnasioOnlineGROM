@@ -20,7 +20,7 @@ export class EjerciciosComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get<any>('https://gym-proyecto.free.beeceptor.com/todos').subscribe(data => {
+    this.http.get<any>('https://arl150.github.io/ejercicios-api/ejercicios.json').subscribe(data => {
       this.datosPorParte = data.cuerpo; 
     });
   }
