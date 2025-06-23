@@ -22,6 +22,8 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { AuthComponent } from './auth/features/auth/auth.component';
 import { GraficosComponent } from './components/graficos/graficos.component';
 import { HomeComponent } from './components/home/home.component';
+import { BuscarComponent } from './components/buscar/buscar.component';
+import { CursoDetalleComponent } from './components/curso-detalle/curso-detalle.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,6 +33,8 @@ export const routes: Routes = [
   { path: 'responsables', component: ResponsablesComponent },
   { path: 'form', component: FormComponent },
   { path: 'redes/:id', component: RedesComponent },
+   {path: 'detalle/:id', component: CursoDetalleComponent},
+  {path: 'buscar', component: BuscarComponent },
   { path: 'nosotros', component: NosotrosComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'ejercicios', component: EjerciciosComponent },
