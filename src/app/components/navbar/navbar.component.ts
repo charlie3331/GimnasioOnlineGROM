@@ -4,11 +4,12 @@ import { Router, RouterModule } from '@angular/router';
 import { AuthServiceService } from '../../services/auth-service.service';
 import { AuthService } from '../../auth/data-access/auth.service';
 import { CapitalizarPipe } from '../../pipes/capitalizar.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule, CapitalizarPipe],
+  imports: [CommonModule, RouterModule, CapitalizarPipe,FormsModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -26,7 +27,11 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   userName: string | null = null;
   userRole: string | null = null;
 
-  constructor(private authService: AuthServiceService, private authS: AuthService) {
+  termino='';
+
+  constructor(private authService: AuthServiceService, private authS: AuthService,
+    private router: Router
+  ) {
     this.authS.userName$.subscribe((name) => {
       this.userName = name;
     });
@@ -44,6 +49,14 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       this.usuarioActual = usuario;
     });
   }
+
+   buscar() {
+    if (this.termino.trim()) {
+      this.router.navigate(['/buscar'], { queryParams: { q: this.termino } });
+      this.termino='';
+    }
+  }
+
 
 
   ngAfterViewInit(): void { }
