@@ -44,5 +44,15 @@
       <!-- Botón -->
       <button type="submit" class="button" [disabled]="formulario.invalid">Enviar</button>
     </form>
+    <div *ngIf="loading()">
+  <p>⏳ Enviando formulario...</p>
+</div>
+
+    <div *ngIf="enviado">
+      <p>✅ Tomale captura es tu boleto al evento</p>
+      <app-qr-view  
+    [clase]="clase"
+    [fecha]="fecha">></app-qr-view>
+    </div>
   </div>
 </body>

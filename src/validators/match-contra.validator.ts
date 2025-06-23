@@ -1,16 +1,24 @@
-import { FormGroup, ValidationErrors } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export function matchContra(group: FormGroup): ValidationErrors | null {
-    // aquí se obtiene el valor del campo 'contrasena' del FormGroup
-  const pass = group.get('contrasena')?.value;
+export function matchContra(passwordKey: string, confirmPasswordKey: string): ValidatorFn {
+  return (form: AbstractControl): ValidationErrors | null => {
+    const password = form.get(passwordKey)?.value;
+    const confirmPassword = form.get(confirmPasswordKey)?.value;
 
-  //aquí se obtiene el valor del campo 'confirmarContrasena' del FormGroup
-  const confirm = group.get('confirmarContrasena')?.value;
-
-    // Compara si ambos valores son iguales
-  return pass === confirm
-    ? null
-    : {
-        passwordsMismatch: 'Las contraseñas no coinciden',
-      };
+    if (password !== confirmPassword) {
+      form.get(confirmPasswordKey)?.setErrors({ mismatch: true });
+    } else {
+      // Solo borramos si ya hay mismatch
+      const errors = form.get(confirmPasswordKey)?.errors;
+      if (errors && errors['mismatch']) {
+        delete errors['mismatch'];
+        if (Object.keys(errors).length === 0) {
+          form.get(confirmPasswordKey)?.setErrors(null);
+        } else {
+          form.get(confirmPasswordKey)?.setErrors(errors);
+        }
+      }
+    }
+    return null;
+  };
 }

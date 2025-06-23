@@ -36,17 +36,21 @@ export class AuthService {
   // ✅ BehaviorSubject para nombre de usuario
   private userNameSubject = new BehaviorSubject<string | null>(null);
   public userName$ = this.userNameSubject.asObservable(); // Exponemos como observable
+  private userUidSubject = new BehaviorSubject<string | null>(null);
+public userUid$ = this.userUidSubject.asObservable();
 
   constructor(private firestore: Firestore) {
   onAuthStateChanged(this._auth, async (user) => {
     if (!user) {
       this.userNameSubject.next(null);
       this.userRoleSubject.next(null);
+       this.userUidSubject.next(null);
       return;
     }
 
     const uid = user.uid;
     let name: string | null = null;
+     this.userUidSubject.next(user.uid); // 👈 importante
 
     // Si viene de Google, usa displayName
     if (user.providerData[0]?.providerId === 'google.com') {
@@ -281,7 +285,8 @@ async signIn(user: LoginData) {
       email: user.email,
       nombre: user.displayName || "", // o lo que quieras guardar
       intentos:0,
-      telefono:''
+      telefono:'',
+      role: 'user'
     });
   }else {
     // Si ya existe, reiniciamos el campo 'intentos' a 0

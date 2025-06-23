@@ -2,19 +2,19 @@ import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export function ContraValidator(control: AbstractControl): ValidationErrors | null {
   const value: string = control.value || '';
+  const errors: any = {};
 
-  //esta es la expresión regular que define las reglas para una contraseña válida:
-  const regex = /^(?=.[A-Z])(?=.\d)[A-Za-z\d]{8,16}$/;
+  if (!/[A-Z]/.test(value)) {
+    errors.missingUppercase = true;
+  }
 
-  // ^(?=.[A-Z])   - debe tener al menos una letra mayúscula
-  // (?=.\d)       - necesita tener al menos un dígito
-  // [A-Za-z\d]    - solo permite letras (no importa si son mayusculas o minusculas), dígitos o guión bajo
-  // {8,16}$        - longitud entre 8 y 16 caracteres
+  if (!/\d/.test(value)) {
+    errors.missingNumber = true;
+  }
 
-  // aquí se evalua si el valor cumple con la expresión regular
-  return regex.test(value)
-    ? null
-    : {
-        invalidPassword: 'Debe tener mayúscula, dígito y solo letras, dígitos o "_"',
-      };
+  if (value.length < 6 || value.length > 16) {
+    errors.invalidLength = true;
+  }
+
+  return Object.keys(errors).length > 0 ? errors : null;
 }
