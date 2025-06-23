@@ -6,6 +6,7 @@
     organizados por grupo muscular.
   </p>
 
+  <app-filtro-ejercicios (searchChange)="onFiltrarEjercicios($event)"></app-filtro-ejercicios>
 
   <!-- Mensaje cuando no hay resultados -->
   <div *ngIf="datosFiltrados.length === 0 && filtroActual !== ''" 

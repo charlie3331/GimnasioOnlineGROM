@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { EjerciciosComponent } from '../ejercicios/ejercicios.component';
-import { VideoCardsComponent } from '../video-cards/video-cards.component';
+import { VideoCardsComponent } from '../../src/app/components/video-cards/video-cards.component';
 
 @Component({
   selector: 'app-dashboard',

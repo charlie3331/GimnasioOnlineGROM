@@ -25,6 +25,7 @@ import { HomeComponent } from './components/home/home.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
 import { CursoDetalleComponent } from './components/curso-detalle/curso-detalle.component';
 
+
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },  { path: 'ubicacion', component: UbicacionComponent },
