@@ -1,0 +1,12 @@
+<div class="contenedor-curso">
+  <h2>Detalle del curso</h2>
+
+  @if (curso) {
+    <p><strong>Nombre:</strong> {{ curso.nombre }}</p>
+    <p><strong>Descripción:</strong> {{ curso.descripcion }}</p>
+    <p><strong>Duración:</strong> {{ curso.duracion }}</p>
+    <img [src]="curso.img" alt="Imagen del curso">
+  } @else {
+    <p>Curso no encontrado.</p>
+  }
+</div>

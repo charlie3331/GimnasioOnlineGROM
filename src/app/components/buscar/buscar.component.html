@@ -1,0 +1,13 @@
+<h2 class="nav-link">Resultados</h2>
+
+@for (curso of resultados; track $index) {
+  <a [routerLink]="['/detalle', curso.id]" class="resultado-card">
+    <p>{{ curso.nombre }}</p>
+    <p>{{ curso.descripcion }}</p>
+    <p>Duración: {{ curso.duracion }}</p>
+  </a>
+}
+
+@if (resultados.length === 0) {
+  <p  id="txt">No se encontraron resultados.</p>
+}
