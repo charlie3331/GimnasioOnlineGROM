@@ -12,13 +12,15 @@ table {
   
   .tabla-responsive {
   overflow-x: auto;
-  -webkit-overflow-scrolling: touch; 
+  -webkit-overflow-scrolling: touch; /* para mejor scroll en móviles */
 }
 
+/* Opcional: que la tabla tenga un ancho mínimo para evitar que se comprima demasiado */
 .tabla-responsive table {
-  min-width: 600px; 
+  min-width: 600px; /* o el ancho mínimo que necesites */
 }
 
+/* En pantallas muy pequeñas, ajusta el min-width si quieres */
 @media (max-width: 480px) {
   .tabla-responsive table {
     min-width: 100%;
