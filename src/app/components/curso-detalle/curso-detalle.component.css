@@ -172,3 +172,76 @@ h1.text-center::after {
 .icono-info {
   font-size: 28px;
 }
+
+@media (max-width: 768px) {
+  h1.text-center {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+  }
+
+  .subtitulo {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+  }
+
+  .curso-preview {
+    padding: 20px;
+    margin: 30px 15px;
+  }
+
+  .curso-preview h2.text-center {
+    font-size: 1.8rem;
+  }
+
+  .curso-descripcion,
+  .curso-duracion {
+    font-size: 16px;
+  }
+
+  .curso-img {
+    margin: 20px auto;
+    width: 100%;
+    height: auto;
+  }
+
+  .btn-volver {
+    font-size: 14px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .mensaje-no-resultados {
+    margin: 40px 15px;
+    padding: 20px;
+    font-size: 16px;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .icono-info {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1.text-center {
+    font-size: 1.9rem;
+  }
+
+  .curso-preview h2.text-center {
+    font-size: 1.5rem;
+  }
+
+  .curso-descripcion,
+  .curso-duracion {
+    font-size: 15px;
+  }
+
+  .subtitulo {
+    font-size: 1rem;
+  }
+
+  .btn-volver {
+    font-size: 13px;
+  }
+}
